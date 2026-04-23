@@ -7,6 +7,17 @@ import time
 import pandas as pd
 from difflib import get_close_matches
 
+try:
+    from tensorflow.keras.models import load_model
+    TF_AVAILABLE = True
+except:
+    TF_AVAILABLE = False
+
+if TF_AVAILABLE:
+    model = load_model("model.h5")
+else:
+    st.error("TensorFlow tidak tersedia")
+
 # ================================
 # CONFIG
 # ================================
